@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db1-config
+  namespace: project-plato
+data:
+  default.conf: |
+    server {
+        listen 6379;
+        server_name localhost;
+    }
