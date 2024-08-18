@@ -1038,15 +1038,15 @@ spec:
     
       # # To make Grafana persistent (Using Statefulset)
       # #
-      #persistence:
-      #  enabled: true
-      #  accessModes:
-      #    - ReadWriteOnce
-      #  size: 5Gi
-      #  storageClassName: local-path
-      #  selector: 
-      #    matchLabels:
-      #      name: grafana-pv
+      persistence:
+        enabled: true
+        accessModes:
+          - ReadWriteOnce
+        size: 5Gi
+        storageClassName: local-path
+        selector: 
+          matchLabels:
+            name: grafana-pv
             
       #  existingClaim: 
       #   type: sts
