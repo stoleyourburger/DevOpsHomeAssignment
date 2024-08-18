@@ -1040,12 +1040,15 @@ spec:
       # #
       persistence:
         enabled: true
-        existingClaim: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
       #   type: sts
-      #   storageClassName: "storageClassName"
-      #   accessModes:
-      #     - ReadWriteOnce
-      #   size: 20Gi
+      #  existingClaim: 
+        accessModes:
+          - ReadWriteOnce
+        size: 5Gi
+        storageClassName: local-path
+        selector: 
+          matchLabels:
+            name: grafana-pv
       #   finalizers:
       #     - kubernetes.io/pvc-protection
     
@@ -3810,7 +3813,7 @@ spec:
         ##
           volumeClaimTemplate:
             spec:
-              volumeName: monitoring-persistentvolume
+              volumeName: prometheus-pv
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
@@ -3818,7 +3821,7 @@ spec:
               storageClassName: local-path
             selector: 
               matchLabels:
-                name: monitoring-persistentvolume
+                name: prometheus-pv
         #      storageClassName: gluster
         #      accessModes: ["ReadWriteOnce"]
         #      resources:
