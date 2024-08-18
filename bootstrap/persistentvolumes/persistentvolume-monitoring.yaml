@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: monitoring-persistentvolume
   labels:
-    app.kubernetes.io/name: prometheus-persistentvolume
+    app.kubernetes.io/name: monitoring-persistentvolume
 spec:
   capacity:
     storage: 60Gi

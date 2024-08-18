@@ -3804,11 +3804,20 @@ spec:
         ## Prometheus StorageSpec for persistent data
         ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/storage.md
         ##
-        storageSpec: {}
+        storageSpec:
         ## Using PersistentVolumeClaim
         ##
-        #  volumeClaimTemplate:
-        #    spec:
+          volumeClaimTemplate:
+            spec:
+              volumeName: monitoring-persistentvolume
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 50Gi
+              storageClassName: local-path
+            selector: 
+              matchLabels:
+                name: monitoring-persistentvolume
         #      storageClassName: gluster
         #      accessModes: ["ReadWriteOnce"]
         #      resources:
