@@ -1047,6 +1047,9 @@ spec:
       #  selector: 
       #    matchLabels:
       #      name: grafana-pv
+            
+      #  existingClaim: 
+      #   type: sts
       #   finalizers:
       #     - kubernetes.io/pvc-protection
     
@@ -3809,17 +3812,17 @@ spec:
         storageSpec:
         ## Using PersistentVolumeClaim
         ##
-        #  volumeClaimTemplate:
-        #    spec:
-        #      volumeName: prometheus-pv
-        #      accessModes: ["ReadWriteOnce"]
-        #      resources:
-        #        requests:
-        #          storage: 50Gi
-        #      storageClassName: local-path
-        #    selector: 
-        #      matchLabels:
-        #        name: prometheus-pv
+          volumeClaimTemplate:
+            spec:
+              volumeName: prometheus-pv
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 50Gi
+              storageClassName: local-path
+            selector: 
+              matchLabels:
+                name: prometheus-pv
         #      storageClassName: gluster
         #      accessModes: ["ReadWriteOnce"]
         #      resources:
