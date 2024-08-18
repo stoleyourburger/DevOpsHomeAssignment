@@ -788,7 +788,7 @@ spec:
       persistence:
         ## @param primary.persistence.enabled Enable PostgreSQL Primary data persistence using PVC
         ##
-        enabled: false
+        enabled: true
         ## @param primary.persistence.volumeName Name to assign the volume
         ##
         volumeName: "data"
