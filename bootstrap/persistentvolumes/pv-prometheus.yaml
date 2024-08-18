@@ -20,4 +20,4 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - k3s-master-01
+                - k8s-ha
