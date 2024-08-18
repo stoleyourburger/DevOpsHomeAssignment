@@ -1038,8 +1038,9 @@ spec:
     
       # # To make Grafana persistent (Using Statefulset)
       # #
-      # persistence:
-      #   enabled: true
+      persistence:
+        enabled: true
+        existingClaim: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
       #   type: sts
       #   storageClassName: "storageClassName"
       #   accessModes:
